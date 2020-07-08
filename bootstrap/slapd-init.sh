@@ -11,6 +11,7 @@ readonly LDAP_SECRET=GoodNewsEveryone
 
 readonly LDAP_SSL_KEY="/etc/ldap/ssl/ldap.key"
 readonly LDAP_SSL_CERT="/etc/ldap/ssl/ldap.crt"
+export LDAP_RFC2307BIS_SCHEMA="true"
 
 
 reconfigure_slapd() {
@@ -71,6 +72,16 @@ configure_memberof_overlay(){
   ldapmodify -Y EXTERNAL -H ldapi:/// -f ${CONFIG_DIR}/memberof.ldif -Q
 }
 
+configure_rfc2307bis(){
+  echo "Configure rfc2307bis schema..."
+  rm '/etc/ldap/slapd.d/cn=config/cn=schema/cn={2}nis.ldif'
+  mv '/etc/ldap/slapd.d/cn=config/cn=schema/cn={3}inetorgperson.ldif' '/etc/ldap/slapd.d/cn=config/cn=schema/cn={2}inetorgperson.ldif'
+  slapcat -f /etc/ldap/schema/rfc2307bis.conf -F /etc/ldap/slapd.d -n 0 -s "cn={3}rfc2307bis,cn=schema,cn=config" | sed -re 's/\{[0-9]+\}//' \
+          -e '/^structuralObjectClass: /d' -e '/^entryUUID: /d' -e '/^creatorsName: /d' -e '/^createTimestamp: /d' -e '/^entryCSN: /d' \
+          -e '/^modifiersName: /d' -e '/^modifyTimestamp: /d' -e '/^$/d' > /etc/ldap/schema/rfc2307bis.ldif
+}
+
+
 configure_admin_config_pw(){
   echo "Configure admin config password..."
   adminpw=$(slappasswd -h {SSHA} -s "${LDAP_SECRET}")
@@ -95,13 +106,17 @@ load_initial_data() {
 
 reconfigure_slapd
 make_snakeoil_certificate
+
+# change schema
+configure_rfc2307bis
+
 chown -R openldap:openldap /etc/ldap
 slapd -h "ldapi:///" -u openldap -g openldap
 
-configure_msad_features
+#configure_msad_features
 configure_tls
 configure_logging
-configure_memberof_overlay
+#configure_memberof_overlay
 configure_admin_config_pw
 load_initial_data
 

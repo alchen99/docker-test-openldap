@@ -1,14 +1,15 @@
-dn: cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com
+dn: uid=amy,ou=people,dc=planetexpress,dc=com
 objectClass: top
-objectClass: person
-objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: amy
 cn: Amy Wong
 sn: Kroker
 description: Human
-givenName: Amy
 mail: amy@planetexpress.com
-ou: Intern
-uid: amy
+uidNumber: 10001
+gidNumber: 100
+homeDirectory: /home/amy
+loginShell: /bin/bash
 userPassword:: e3NzaGF9M3UzcUdCSmFMc2tiUEg0OVJrYlFtUk9HTktFb1lOUXZkU2lOZmc9P
  Q==

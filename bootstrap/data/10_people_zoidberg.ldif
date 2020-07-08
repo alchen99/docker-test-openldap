@@ -1,14 +1,20 @@
-dn: cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com
+dn: uid=zoidberg,ou=people,dc=planetexpress,dc=com
 objectClass: top
-objectClass: person
-objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: zoidberg
 cn: John A. Zoidberg
 sn: Zoidberg
 description: Decapodian
 displayName: Zoidberg
 employeeType: Doctor
 givenName: John
+mail: zoidberg@planetexpress.com
+title: Ph.D.
+uidNumber: 10007
+gidNumber: 100
+homeDirectory: /home/zoidberg
+loginShell: /bin/bash
 jpegPhoto:: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoH
  BwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQk
  UDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wg
@@ -480,10 +486,6 @@ jpegPhoto:: /9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoH
  YHa1VhtBE3kdqN1hkDQA0AKIUs6cCTV2am0JQTTqbDk+ZV9JdwH9/M13Ly9QLYHpHYNe8MlTK10
  Kqur/wCQOhR1r/Iaz/lqRJQN4VPWTMD90fIGZN+6h+QA3IFjMBlYlF6GElHrs4yo7ABYKSKWXgY
  oUVB777av/9k=
-mail: zoidberg@planetexpress.com
-ou: Staff
-title: Ph.D.
-uid: zoidberg
 userPassword:: e3NzaGF9UEgvVjZ3S3Mxc3lRems0RGFCd0hXdlJQNmhlZ2xQWmtCR2hWdUE9P
  Q==
 

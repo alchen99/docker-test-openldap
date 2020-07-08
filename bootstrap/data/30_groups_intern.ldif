@@ -1,6 +1,8 @@
-dn: cn=intern,ou=people,dc=planetexpress,dc=com
-objectclass: Group
-objectclass: top
-groupType: 2147483650
+dn: cn=intern,ou=groups,dc=planetexpress,dc=com
+objectClass: top
+objectClass: posixGroup
+objectClass: groupOfMembers
 cn: intern
-member: cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com
+gidNumber: 10003
+description: Interns
+member: uid=amy,ou=people,dc=planetexpress,dc=com

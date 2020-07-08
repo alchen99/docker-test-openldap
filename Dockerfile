@@ -1,5 +1,16 @@
 FROM debian:stretch-slim
-MAINTAINER Rafael Römhild <rafael@roemhild.de>
+MAINTAINER Alice Chen <alchen@apache.org>
+
+ENV LDAP_DEBUG_LEVEL=256
+
+# ADD run script
+COPY ./run.sh /run.sh
+
+# ADD bootstrap files
+ADD ./bootstrap /bootstrap
+
+# ADD additional schema files
+COPY ./schema /etc/ldap/schema/
 
 # Install slapd and requirements
 RUN apt-get update \
@@ -9,19 +20,10 @@ RUN apt-get update \
             ldap-utils \
             openssl \
             ca-certificates \
+            vim \
+            procps \
     && rm -rf /var/lib/apt/lists/* \
-    && mkdir /etc/ldap/ssl /bootstrap
-
-ENV LDAP_DEBUG_LEVEL=256
-
-# COPY schema
-COPY schema/ /etc/ldap/schema/
-
-# ADD run script
-COPY ./run.sh /run.sh
-
-# ADD bootstrap files
-ADD ./bootstrap /bootstrap
+    && mkdir /etc/ldap/ssl
 
 # Initialize LDAP with data
 RUN /bin/bash /bootstrap/slapd-init.sh
@@ -31,4 +33,5 @@ VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 EXPOSE 389 636
 
 CMD ["/bin/bash", "/run.sh"]
+#CMD ["tail", "-f", "/dev/null"]
 ENTRYPOINT []

@@ -1,8 +1,8 @@
-dn: cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com
-objectClass: inetOrgPerson
-objectClass: organizationalPerson
-objectClass: person
+dn: uid=professor,ou=people,dc=planetexpress,dc=com
 objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: professor
 cn: Hubert J. Farnsworth
 sn: Farnsworth
 description: Human
@@ -10,6 +10,13 @@ displayName: Professor Farnsworth
 employeeType: Owner
 employeeType: Founder
 givenName: Hubert
+mail: professor@planetexpress.com
+mail: hubert@planetexpress.com
+title: Professor
+uidNumber: 10006
+gidNumber: 100
+homeDirectory: /home/professor
+loginShell: /bin/bash
 jpegPhoto:: /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBQgMFBofBgYHCg0dHhwHBwgMFB0j
  HAcJCw8aLCgfCQsTHCI3NCcMEhwgKTQ5LhkgJyw0PTwzJC4wMTgyNDL/2wBDAQkJDBgyMjIyCQs
  NITIyMjIMDRwyMjIyMhghMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wA
@@ -487,11 +494,6 @@ jpegPhoto:: /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBQgMFBofBgYHCg0dHhwHBwgMFB0j
  OjNW4zTEXvDMpXUSIhw9sZboj+9aXKBdw9xK9dL4h4msyOouCmP7yy6fcDk+2Qfwrm/h6A9zeNK
  AzqYbCBz/yythBu2r9ZHY/z6Cuk8Qf6+yz0+0NkeuNKu+o9iBQB0VFFFMYUUUUAFFFFABRRRQAU
  UUUAFFFFABRRRQA/9k=
-mail: professor@planetexpress.com
-mail: hubert@planetexpress.com
-ou: Office Management
-title: Professor
-uid: professor
 userPassword:: e3NzaGF9azRDRS9ta3Frb3NFampzVkhJWEhGMTFaU0h6ZVExUzdhdnQveWc9P
  Q==
 

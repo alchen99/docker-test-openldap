@@ -1,0 +1,5 @@
+dn: cn=dir_mgr,dc=planetexpress,dc=com
+objectClass: organizationalRole
+cn: dir_mgr
+description: Directory Manager
+
