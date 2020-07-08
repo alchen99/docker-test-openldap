@@ -1,6 +1,8 @@
 # OpenLDAP Docker Image for testing
 
-![Docker Build Status](https://img.shields.io/docker/build/rroemhild/test-openldap.svg) ![Docker Stars](https://img.shields.io/docker/stars/rroemhild/test-openldap.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/rroemhild/test-openldap.svg)
+This fork adds more groups.
+
+[![DockerHub Badge](http://dockeri.co/image/alchen99/k8s-debug)](https://hub.docker.com/r/alchen99/test-openldap/)
 
 This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
 
@@ -26,8 +28,8 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 ## Usage
 
 ```
-docker pull rroemhild/test-openldap
-docker run --privileged -d -p 389:389 rroemhild/test-openldap
+docker pull alchen99/test-openldap
+docker run --privileged -d -p 389:389 alchen99/test-openldap
 ```
 
 ## Exposed ports
@@ -175,6 +177,14 @@ Amy has a multi-valued DN
 | uid              | amy |
 | userPassword     | amy |
 
+### cn=dir_mgr,ou=people,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | Group |
+| cn               | dir_mgr |
+| member           | cn=admin,dc=planetexpress,dc=com |
+
 ### cn=admin_staff,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
@@ -194,6 +204,46 @@ Amy has a multi-valued DN
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
 
+### cn=intern,ou=people,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | Group |
+| cn               | intern |
+| member           | cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com |
+
+### cn=ship,ou=people,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | Group |
+| cn               | ship |
+| member           | cn=admin,dc=planetexpress,dc=com |
+| member           | cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
+| member           | cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
+| member           | cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com |
+
+## LDAP Search Tips
+
+* Search for groups a user is a member of 
+  ```
+  ldapsearch -LLL -h localhost -p 389 \
+  -D 'cn=admin,dc=planetexpress,dc=com' \
+  -w GoodNewsEveryone \
+  -b 'ou=people,dc=planetexpress,dc=com' \
+  '(&(description=Human)(sn=Fry)(objectclass=inetorgperson))' dn memberof
+  ```
+
+  Will result in the following:
+  ```
+  dn: cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
+  memberOf: cn=ship_crew,ou=people,dc=planetexpress,dc=com
+  memberOf: cn=ship,ou=people,dc=planetexpress,dc=com
+  ```
 
 ## JAAS configuration
 
