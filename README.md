@@ -2,7 +2,7 @@
 
 This fork adds more groups.
 
-[![DockerHub Badge](http://dockeri.co/image/alchen99/k8s-debug)](https://hub.docker.com/r/alchen99/test-openldap/)
+[![DockerHub Badge](http://dockeri.co/image/alchen99/test-openldap)](https://hub.docker.com/r/alchen99/test-openldap/)
 
 This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
 
