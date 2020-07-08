@@ -20,7 +20,6 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 
 * Initialized with data from Futurama
 * Support for TLS (snake oil cert on build)
-* memberOf overlay support
 * RFC2307BIS Style Groups support
 * ~124MB images size (~40MB compressed)
 
@@ -229,20 +228,20 @@ Amy has a multi-valued DN
 
 ## LDAP Search Tips
 
-* Search for groups a user is a member of 
+* Search for members of a group
   ```
   ldapsearch -LLL -h localhost -p 389 \
   -D 'cn=admin,dc=planetexpress,dc=com' \
   -w GoodNewsEveryone \
   -b 'ou=people,dc=planetexpress,dc=com' \
-  '(&(description=Human)(sn=Fry)(objectclass=inetorgperson))' dn memberof
+  '(&(objectClass=groupOfMembers)(cn=admin))' dn member
   ```
 
   Will result in the following:
   ```
-  dn: cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
-  memberOf: cn=ship_crew,ou=people,dc=planetexpress,dc=com
-  memberOf: cn=ship,ou=people,dc=planetexpress,dc=com
+  dn: cn=admin,ou=groups,dc=planetexpress,dc=com
+  member: uid=professor,ou=people,dc=planetexpress,dc=com
+  member: uid=hermes,ou=people,dc=planetexpress,dc=com
   ```
 
 ## JAAS configuration

@@ -113,10 +113,8 @@ configure_rfc2307bis
 chown -R openldap:openldap /etc/ldap
 slapd -h "ldapi:///" -u openldap -g openldap
 
-#configure_msad_features
 configure_tls
 configure_logging
-#configure_memberof_overlay
 configure_admin_config_pw
 load_initial_data
 

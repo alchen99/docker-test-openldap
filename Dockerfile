@@ -1,5 +1,10 @@
 FROM debian:stretch-slim
-MAINTAINER Alice Chen <alchen@apache.org>
+
+LABEL maintaner="Alice Chen <alchen@apache.org>"
+
+# Metadata
+LABEL org.label-schema.vcs-url="https://github.com/alchen99/test-openldap" \
+      org.label-schema.docker.dockerfile="/Dockerfile"
 
 ENV LDAP_DEBUG_LEVEL=256
 
@@ -33,5 +38,5 @@ VOLUME ["/etc/ldap/slapd.d", "/etc/ldap/ssl", "/var/lib/ldap", "/run/slapd"]
 EXPOSE 389 636
 
 CMD ["/bin/bash", "/run.sh"]
-#CMD ["tail", "-f", "/dev/null"]
+
 ENTRYPOINT []
