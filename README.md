@@ -1,6 +1,6 @@
 # OpenLDAP Docker Image for testing
 
-This fork adds more groups.
+This fork adds more LDAP groups and more tools to the Docker container
 
 [![DockerHub Badge](http://dockeri.co/image/alchen99/test-openldap)](https://hub.docker.com/r/alchen99/test-openldap/)
 
@@ -21,7 +21,7 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 * Initialized with data from Futurama
 * Support for TLS (snake oil cert on build)
 * memberOf overlay support
-* MS-AD Style Groups support
+* RFC2307BIS Style Groups support
 * ~124MB images size (~40MB compressed)
 
 
