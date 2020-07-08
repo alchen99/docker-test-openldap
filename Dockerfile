@@ -14,6 +14,9 @@ RUN apt-get update \
 
 ENV LDAP_DEBUG_LEVEL=256
 
+# COPY schema
+COPY schema/ /etc/ldap/schema/
+
 # ADD run script
 COPY ./run.sh /run.sh
 
