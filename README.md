@@ -1,6 +1,6 @@
 # OpenLDAP Docker Image for testing
 
-This fork adds more groups.
+This fork adds more LDAP groups and more tools to the Docker container.
 
 [![DockerHub Badge](http://dockeri.co/image/alchen99/test-openldap)](https://hub.docker.com/r/alchen99/test-openldap/)
 
