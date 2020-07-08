@@ -1,14 +1,13 @@
 dn: cn=ship,ou=groups,dc=planetexpress,dc=com
 objectClass: top
 objectClass: posixGroup
-objectClass: groupOfMembers
 cn: ship
 gidNumber: 10000
 description: Everyone on the ship
-member: uid=amy,ou=people,dc=planetexpress,dc=com
-member: uid=bender,ou=people,dc=planetexpress,dc=com
-member: uid=fry,ou=people,dc=planetexpress,dc=com
-member: uid=hermes,ou=people,dc=planetexpress,dc=com
-member: uid=leela,ou=people,dc=planetexpress,dc=com
-member: uid=professor,ou=people,dc=planetexpress,dc=com
-member: uid=zoidberg,ou=people,dc=planetexpress,dc=com
+memberUid: amy
+memberUid: bender
+memberUid: fry
+memberUid: hermes
+memberUid: leela
+memberUid: professor
+memberUid: zoidberg

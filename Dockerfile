@@ -20,7 +20,7 @@ RUN apt-get update \
             ldap-utils \
             openssl \
             ca-certificates \
-            vim \
+            vim-tiny \
             procps \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /etc/ldap/ssl

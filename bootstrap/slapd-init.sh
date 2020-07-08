@@ -108,7 +108,7 @@ reconfigure_slapd
 make_snakeoil_certificate
 
 # change schema
-configure_rfc2307bis
+#configure_rfc2307bis
 
 chown -R openldap:openldap /etc/ldap
 slapd -h "ldapi:///" -u openldap -g openldap

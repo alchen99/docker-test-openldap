@@ -1,9 +1,8 @@
 dn: cn=admin,ou=groups,dc=planetexpress,dc=com
 objectClass: top
 objectClass: posixGroup
-objectClass: groupOfMembers
 cn: admin
 gidNumber: 10001
 description: Admin Group
-member: uid=professor,ou=people,dc=planetexpress,dc=com
-member: uid=hermes,ou=people,dc=planetexpress,dc=com
+memberUid: professor
+memberUid: hermes

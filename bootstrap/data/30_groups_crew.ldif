@@ -1,10 +1,9 @@
 dn: cn=crew,ou=groups,dc=planetexpress,dc=com
 objectClass: top
 objectClass: posixGroup
-objectClass: groupOfMembers
 cn: crew
 gidNumber: 10002
 description: Ship Crew
-member: uid=fry,ou=people,dc=planetexpress,dc=com
-member: uid=leela,ou=people,dc=planetexpress,dc=com
-member: uid=bender,ou=people,dc=planetexpress,dc=com
+memberUid: fry
+memberUid: leela
+memberUid: bender
