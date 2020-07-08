@@ -228,12 +228,20 @@ Amy has a multi-valued DN
 
 ## LDAP Search Tips
 
+* Search for all groups
+  ```
+  ldapsearch -LLL -h localhost -p 389 \
+  -D 'cn=admin,dc=planetexpress,dc=com' \
+  -w GoodNewsEveryone \
+  -b 'ou=groups,dc=planetexpress,dc=com' dn
+  ```
+
 * Search for members of a group
   ```
   ldapsearch -LLL -h localhost -p 389 \
   -D 'cn=admin,dc=planetexpress,dc=com' \
   -w GoodNewsEveryone \
-  -b 'ou=people,dc=planetexpress,dc=com' \
+  -b 'ou=groups,dc=planetexpress,dc=com' \
   '(&(objectClass=groupOfMembers)(cn=admin))' dn member
   ```
 
