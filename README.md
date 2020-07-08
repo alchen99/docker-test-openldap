@@ -59,6 +59,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Hubert J. Farnsworth |
 | sn               | Farnsworth |
 | description      | Human |
@@ -69,10 +70,13 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | jpegPhoto        | JPEG-Photo (630x507 Pixel, 26780 Bytes) |
 | mail             | professor@planetexpress.com |
 | mail             | hubert@planetexpress.com |
-| ou               | Office Management |
 | title            | Professor |
 | uid              | professor |
 | userPassword     | professor |
+| uidNumber        | 10006 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/professor |
+| loginShell       | /bin/bash |
 
 
 ### cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
@@ -80,6 +84,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Philip J. Fry |
 | sn               | Fry |
 | description      | Human |
@@ -88,9 +93,12 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | givenName        | Philip |
 | jpegPhoto        | JPEG-Photo (429x350 Pixel, 22132 Bytes) |
 | mail             | fry@planetexpress.com |
-| ou               | Delivering Crew |
 | uid              | fry |
 | userPassword     | fry |
+| uidNumber        | 10003 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/fry |
+| loginShell       | /bin/bash |
 
 
 ### cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com
@@ -98,133 +106,141 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | John A. Zoidberg |
 | sn               | Zoidberg |
 | description      | Decapodian |
 | displayName      | Zoidberg |
 | employeeType     | Doctor |
-| givenName        | John |
 | jpegPhoto        | JPEG-Photo (343x280 Pixel, 26438 Bytes) |
 | mail             | zoidberg@planetexpress.com |
-| ou               | Staff |
 | title            | Ph. D. |
 | uid              | zoidberg |
 | userPassword     | zoidberg |
+| uidNumber        | 10007 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/zoidberg |
+| loginShell       | /bin/bash |
 
 ### cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Hermes Conrad |
 | sn               | Conrad |
 | description      | Human |
 | employeeType     | Bureaucrat |
 | employeeType     | Accountant |
-| givenName        | Hermes |
 | mail             | hermes@planetexpress.com |
-| ou               | Office Management |
 | uid              | hermes |
 | userPassword     | hermes |
+| uidNumber        | 10004 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/hermes |
+| loginShell       | /bin/bash |
 
 ### cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Turanga Leela |
 | sn               | Turanga |
 | description      | Mutant |
 | employeeType     | Captain |
 | employeeType     | Pilot |
-| givenName        | Leela |
 | jpegPhoto        | JPEG-Photo (429x350 Pixel, 26526 Bytes) |
 | mail             | leela@planetexpress.com |
-| ou               | Delivering Crew |
 | uid              | leela |
 | userPassword     | leela |
+| uidNumber        | 10005 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/leela |
+| loginShell       | /bin/bash |
 
 ### cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Bender Bending Rodríguez |
 | sn               | Rodríguez |
 | description      | Robot |
 | employeeType     | Ship's Robot |
-| givenName        | Bender |
 | jpegPhoto        | JPEG-Photo (436x570 Pixel, 26819 Bytes) |
 | mail             | bender@planetexpress.com |
-| ou               | Delivering Crew |
 | uid              | bender |
 | userPassword     | bender |
+| uidNumber        | 10002 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/bender |
+| loginShell       | /bin/bash |
 
-### cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com
-
-Amy has a multi-valued DN
+### uid=amy,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | inetOrgPerson |
+| objectClass      | posixAccount |
 | cn               | Amy Wong |
 | sn               | Kroker |
 | description      | Human |
-| givenName        | Amy |
 | mail             | amy@planetexpress.com |
-| ou               | Intern |
 | uid              | amy |
 | userPassword     | amy |
+| uidNumber        | 10001 |
+| gidNumber        | 100 |
+| homeDirectory    | /home/amy |
+| loginShell       | /bin/bash |
 
-### cn=dir_mgr,ou=people,dc=planetexpress,dc=com
-
-| Attribute        | Value            |
-| ---------------- | ---------------- |
-| objectClass      | Group |
-| cn               | dir_mgr |
-| member           | cn=admin,dc=planetexpress,dc=com |
-
-### cn=admin_staff,ou=people,dc=planetexpress,dc=com
+### cn=admin,ou=groups,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
-| objectClass      | Group |
-| cn               | admin_staff |
-| member           | cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com |
+| objectClass      | posixGroup |
+| cn               | admin |
+| gid              | 10001 |
+| memberUid        | professor |
+| memberUid        | hermes |
 
-### cn=ship_crew,ou=people,dc=planetexpress,dc=com
-
-| Attribute        | Value            |
-| ---------------- | ---------------- |
-| objectClass      | Group |
-| cn               | ship_crew |
-| member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
-
-### cn=intern,ou=people,dc=planetexpress,dc=com
+### cn=crew,ou=groups,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
-| objectClass      | Group |
+| objectClass      | posixGroup |
+| cn               | crew |
+| gid              | 10002 |
+| memberUid        | leela |
+| memberUid        | fry |
+| memberUid        | bender |
+
+### cn=intern,ou=groups,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | posixGroup |
 | cn               | intern |
-| member           | cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com |
+| gid              | 10003 |
+| memberUid        | amy |
 
-### cn=ship,ou=people,dc=planetexpress,dc=com
+### cn=ship,ou=groups,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
-| objectClass      | Group |
+| objectClass      | posixGroup |
 | cn               | ship |
-| member           | cn=admin,dc=planetexpress,dc=com |
-| member           | cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
-| member           | cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
-| member           | cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com |
+| gid              | 10000 |
+| memberUid        | amy |
+| memberUid        | bender | 
+| memberUid        | fry |
+| memberUid        | hermes |
+| memberUid        | leela |
+| memberUid        | professor |
+| memberUid        | zoidberg |
 
 ## LDAP Search Tips
 
