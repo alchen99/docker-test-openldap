@@ -5,6 +5,7 @@ objectClass: posixAccount
 uid: amy
 cn: Amy Wong
 sn: Kroker
+givenName: Amy
 description: Human
 mail: amy@planetexpress.com
 uidNumber: 10001

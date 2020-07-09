@@ -54,7 +54,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 
 ### ou=people,dc=planetexpress,dc=com
 
-#### cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com
+#### uid=professor,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
@@ -79,7 +79,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | loginShell       | /bin/bash |
 
 
-### cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
+### uid=fry,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
@@ -101,7 +101,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | loginShell       | /bin/bash |
 
 
-### cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com
+### uid=zoidberg,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
@@ -112,6 +112,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | description      | Decapodian |
 | displayName      | Zoidberg |
 | employeeType     | Doctor |
+| givenName        | John |
 | jpegPhoto        | JPEG-Photo (343x280 Pixel, 26438 Bytes) |
 | mail             | zoidberg@planetexpress.com |
 | title            | Ph. D. |
@@ -122,7 +123,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | homeDirectory    | /home/zoidberg |
 | loginShell       | /bin/bash |
 
-### cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
+### uid=hermes,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
@@ -133,6 +134,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | description      | Human |
 | employeeType     | Bureaucrat |
 | employeeType     | Accountant |
+| givenName        | Hermes |
 | mail             | hermes@planetexpress.com |
 | uid              | hermes |
 | userPassword     | hermes |
@@ -141,7 +143,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | homeDirectory    | /home/hermes |
 | loginShell       | /bin/bash |
 
-### cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
+### uid=leela,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
@@ -152,6 +154,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | description      | Mutant |
 | employeeType     | Captain |
 | employeeType     | Pilot |
+| givenName        | Leela |
 | jpegPhoto        | JPEG-Photo (429x350 Pixel, 26526 Bytes) |
 | mail             | leela@planetexpress.com |
 | uid              | leela |
@@ -161,7 +164,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | homeDirectory    | /home/leela |
 | loginShell       | /bin/bash |
 
-### cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com
+### uid=bender,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
@@ -171,6 +174,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | sn               | Rodríguez |
 | description      | Robot |
 | employeeType     | Ship's Robot |
+| givenName        | Bender |
 | jpegPhoto        | JPEG-Photo (436x570 Pixel, 26819 Bytes) |
 | mail             | bender@planetexpress.com |
 | uid              | bender |
@@ -189,6 +193,7 @@ docker run --privileged -d -p 389:389 alchen99/test-openldap
 | cn               | Amy Wong |
 | sn               | Kroker |
 | description      | Human |
+| givenName        | Amy |
 | mail             | amy@planetexpress.com |
 | uid              | amy |
 | userPassword     | amy |
