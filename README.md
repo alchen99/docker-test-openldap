@@ -185,21 +185,21 @@ Amy has a multi-valued DN
 | cn               | dir_mgr |
 | member           | cn=admin,dc=planetexpress,dc=com |
 
-### cn=admin_staff,ou=people,dc=planetexpress,dc=com
+### cn=admin,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | Group |
-| cn               | admin_staff |
+| cn               | admin |
 | member           | cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com |
 
-### cn=ship_crew,ou=people,dc=planetexpress,dc=com
+### cn=crew,ou=people,dc=planetexpress,dc=com
 
 | Attribute        | Value            |
 | ---------------- | ---------------- |
 | objectClass      | Group |
-| cn               | ship_crew |
+| cn               | crew |
 | member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
@@ -218,7 +218,6 @@ Amy has a multi-valued DN
 | ---------------- | ---------------- |
 | objectClass      | Group |
 | cn               | ship |
-| member           | cn=admin,dc=planetexpress,dc=com |
 | member           | cn=Hubert J. Farnsworth,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
 | member           | cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com |
@@ -228,6 +227,15 @@ Amy has a multi-valued DN
 | member           | cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com |
 
 ## LDAP Search Tips
+
+* Search for all groups
+  ```
+  ldapsearch -LLL -h localhost -p 389 \
+  -D 'cn=admin,dc=planetexpress,dc=com' \
+  -w GoodNewsEveryone \
+  -b 'ou=people,dc=planetexpress,dc=com' \
+  '(&(objectclass=Group))' dn
+  ```
 
 * Search for groups a user is a member of 
   ```
